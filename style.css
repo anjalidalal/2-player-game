@@ -15,7 +15,7 @@ body {
   background-color: rgba(35, 35, 35);
   width: 620px;
   border-radius: 40px 40px 0px 0px;
-  padding: 4px;
+  padding: 5px;
   display: grid;
   grid-template-columns: repeat(7, auto);
 }
@@ -24,16 +24,18 @@ body {
 .box > div:nth-child(3),
 .box > div:nth-child(4),
 .box > div:nth-child(5),
-.box > div:nth-child(6) {
+.box > div:nth-child(6),
+.box > div:nth-child(7) {
   margin-top: 5px;
 }
 
-.box > div:nth-child(31),
-.box > div:nth-child(32),
-.box > div:nth-child(33),
-.box > div:nth-child(34),
-.box > div:nth-child(35),
-.box > div:nth-child(36) {
+.box > div:nth-child(36),
+.box > div:nth-child(37),
+.box > div:nth-child(38),
+.box > div:nth-child(39),
+.box > div:nth-child(40),
+.box > div:nth-child(41),
+.box > div:nth-child(42) {
   margin-bottom: 5px;
 }
 .ball {
@@ -46,6 +48,8 @@ body {
   border-radius: 50%;
   background-color: blue;
   border: 2px solid rgb(48, 47, 47);
+  transition: transform 0.9s ease-in-out;
+  z-index: 1000;
 }
 .box > div {
   position: relative;
@@ -55,12 +59,4 @@ body {
   border-radius: 50%;
   background-color: lightgray;
   border: 2px solid rgb(48, 47, 47);
-}
-.move-ball {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  transition: transform 0.9s ease-in-out;
-  z-index: 1000;
 }
