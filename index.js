@@ -1,39 +1,46 @@
-//console.log(Math.random());
 const main = document.querySelector(".main");
-const boxes = document.querySelectorAll(".goal");
-const boxContainer = document.querySelector(".box");
+const boxContainer = document.createElement("div");
+boxContainer.classList.add("box");
 
-const array = [
-  [0, 1, 2, 3, 4, 5, 6],
-  [7, 8, 9, 10, 11, 12],
-  [13, 14, 15, 16, 17, 18],
-  [19, 20, 21, 22, 23, 24],
-  [25, 26, 27, 28, 29, 30],
-  [31, 32, 33, 35, 36, 37],
-];
+const balls = [0, 0, 0, 0, 0, 0, 0];
+let counter = 0;
 
-boxes.forEach((box, i) => {
-  box.addEventListener("click", (e) => {
-    console.log(e, e.target);
+const onClickingElement = (column) => (e) => {
+  const ball = document.createElement("div");
 
-    const ball = document.createElement("div");
-    ball.classList.add("ball");
-    main.prepend(ball, boxContainer);
+  if (counter % 2 === 0) {
+    ball.classList.add("red-ball");
+  } else {
+    ball.classList.add("blue-ball");
+  }
+  main.prepend(ball, boxContainer);
 
-    const { x, y } = e;
+  const boxColumns = document.querySelectorAll(".col-styles");
+  const X = 35 + column - 7 * balls[column];
 
-    // ball.style.top = `${y - e.clientTop}px`;
-    // ball.style.left = `${x - e.layerX}px`;
-    // ball.style.transform = `translateY(${486}px)`;
+  const elementBoundry = boxColumns[X].getBoundingClientRect();
 
-    ball.style.top = `${y - e.clientTop}px`;
-    ball.style.left = `${x - e.layerX}px`;
-    ball.style.transform = `translateY(${
-      e.target.offsetTop + e.target.clientHeight
-    }px)`;
+  console.log(counter);
 
-    for (let i = 0; i < boxes.length; i++) {
-      console.log(boxes[i], boxes.length);
-    }
-  });
-});
+  ball.style.top = `${elementBoundry.top}px`;
+  ball.style.left = `${elementBoundry.left}px`;
+
+  balls[column] += 1;
+  counter++;
+};
+
+for (let row = 0; row < 6; row++) {
+  const rowEl = document.createElement("div");
+  rowEl.classList.add("row-styles");
+  for (let col = 0; col < 7; col++) {
+    const colEl = document.createElement("div");
+    colEl.classList.add("col-styles");
+
+    colEl.addEventListener("click", onClickingElement(col));
+
+    rowEl.appendChild(colEl);
+  }
+  boxContainer.appendChild(rowEl);
+}
+
+main.appendChild(boxContainer);

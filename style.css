@@ -16,10 +16,10 @@ body {
   width: 620px;
   border-radius: 40px 40px 0px 0px;
   padding: 5px;
-  display: grid;
-  grid-template-columns: repeat(7, auto);
+  display: flex;
+  flex-direction: column;
 }
-.box > div:nth-child(1),
+/* .box > div:nth-child(1),
 .box > div:nth-child(2),
 .box > div:nth-child(3),
 .box > div:nth-child(4),
@@ -27,9 +27,9 @@ body {
 .box > div:nth-child(6),
 .box > div:nth-child(7) {
   margin-top: 5px;
-}
+} */
 
-.box > div:nth-child(36),
+/* .box > div:nth-child(36),
 .box > div:nth-child(37),
 .box > div:nth-child(38),
 .box > div:nth-child(39),
@@ -37,8 +37,21 @@ body {
 .box > div:nth-child(41),
 .box > div:nth-child(42) {
   margin-bottom: 5px;
+} */
+.red-ball {
+  position: absolute;
+  top: 0;
+  left: 44%;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: red;
+  border: 2px solid rgb(48, 47, 47);
+  transition: all 0.9s ease-in-out;
+  z-index: 1000;
 }
-.ball {
+.blue-ball {
   position: absolute;
   top: 0;
   left: 44%;
@@ -48,10 +61,13 @@ body {
   border-radius: 50%;
   background-color: blue;
   border: 2px solid rgb(48, 47, 47);
-  transition: transform 0.9s ease-in-out;
+  transition: all 0.9s ease-in-out;
   z-index: 1000;
 }
-.box > div {
+.row-styles {
+  display: flex;
+}
+.col-styles {
   position: relative;
   margin: auto;
   width: 80px;
