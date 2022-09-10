@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  text-align: center;
+}
+.box {
+  margin: auto;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(35, 35, 35);
+  width: 620px;
+  border-radius: 40px 40px 0px 0px;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+}
+.box > div:nth-child(1),
+.box > div:nth-child(2),
+.box > div:nth-child(3),
+.box > div:nth-child(4),
+.box > div:nth-child(5),
+.box > div:nth-child(6) {
+  margin-top: 5px;
+}
+
+.box > div:nth-child(31),
+.box > div:nth-child(32),
+.box > div:nth-child(33),
+.box > div:nth-child(34),
+.box > div:nth-child(35),
+.box > div:nth-child(36) {
+  margin-bottom: 5px;
+}
+.ball {
+  position: absolute;
+  top: 0;
+  left: 44%;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: blue;
+  border: 2px solid rgb(48, 47, 47);
+}
+.box > div {
+  position: relative;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: lightgray;
+  border: 2px solid rgb(48, 47, 47);
+}
+.move-ball {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.9s ease-in-out;
+  z-index: 1000;
+}
